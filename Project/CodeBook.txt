@@ -1,0 +1,28 @@
+
+
+Variables:
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
+- Triaxial Angular velocity from the gyroscope. 
+- A 81-feature vector with the means and standard deviations of time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+Data: 
+
+'total.target': 10299 obvs 81 variables
+'summary': 180 obvs of 81 variables - the means of the 81 variables for each combination of subject and activity
+
+transforamtions:
+
+The following transformations were performed to get the 'total.target' data frame
+
+- the training feature data r was appeneded to the test feature data
+- the list of training subject lables was appended to the list of test subject labels
+- the list of training activity labels was appended to the list of test activity labels
+- the the columns of the training activity labels, subject lables, and feature data was column binded
+- the variables were then named according to features.txt
+- the columns with mean or std in their names were subsetted
+- the activity label numbers were replaced with the activity names
+- the feature names were cleaned up to get rid of parentheses, replace "-" with ".", "f" with "freq", and "t" with "time"
+
+The summary set was created by aggregating total.target on subject label and activity label using a mean as the formula 
